@@ -8,7 +8,8 @@ let game = null;
 document.getElementById('btn__reset').addEventListener(('click'), event => {
   game = new Game();
   game.startGame();
-  console.log(game.activePhrase.phrase);
+// console.log(game.activePhrase.phrase);
+// go ahead, if you need a hint, just uncomment it
 });
 
 // add event listener for class key
