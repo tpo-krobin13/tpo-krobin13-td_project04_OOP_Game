@@ -26,7 +26,6 @@ class Game {
     this.activePhrase = selectedPhrase;
     this.activePhrase.addPhraseToDisplay();
     document.getElementById('overlay').style.display = 'none';
-    console.log(this.activePhrase.phrase);
   }
 
   /**
