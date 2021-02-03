@@ -47,14 +47,8 @@ class Phrase {
   */
 
   checkLetter (inputLetter) {
-    const isLetterFound = this.phrase.includes(inputLetter);
-    if (isLetterFound) {
-      this.showMatchedLetter(inputLetter);
-    } else {
-      this.getSelectedButtonElement(inputLetter).classList.add('wrong');
-      this.getSelectedButtonElement(inputLetter).disabled = true;
-    }
-    return isLetterFound;
+    return this.phrase.includes(inputLetter);
+ 
   }
 
   /**

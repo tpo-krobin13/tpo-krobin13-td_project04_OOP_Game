@@ -26,6 +26,7 @@ class Game {
     this.activePhrase = selectedPhrase;
     this.activePhrase.addPhraseToDisplay();
     document.getElementById('overlay').style.display = 'none';
+    console.log(this.activePhrase.phrase);
   }
 
   /**
@@ -42,10 +43,16 @@ class Game {
   */
   handleInteraction (key) {
     const isLetterFound = this.activePhrase.checkLetter(key);
-    if (!isLetterFound) {
-      this.removeLife();
-    } else {
+    if (isLetterFound) {
+      this.activePhrase.showMatchedLetter(key);
       if (this.checkForWin()) {
+        this.gameOver();
+      }
+    } else {
+      this.activePhrase.getSelectedButtonElement(key).classList.add('wrong');
+      this.activePhrase.getSelectedButtonElement(key).disabled = true;
+      this.removeLife();
+      if (this.missed === 5) {
         this.gameOver();
       }
     }
@@ -57,7 +64,7 @@ class Game {
   */
   removeLife () {
     const tryList = document.querySelectorAll('.tries img');
-    tryList[this.missed].setAttribute('src', 'images/lostHeart.png');
+    tryList[this.missed].src = 'images/lostHeart.png' ;
     this.missed++;
     if (this.missed === 1) {
       document.querySelectorAll('button.key').forEach((elem) => elem.style.borderColor='#3a3f58');
@@ -69,8 +76,6 @@ class Game {
       document.body.style.background = '#FFDB58';
     } else if (this.missed === 4) {
       document.body.style.background = '#f8a18f';
-    } else if (this.missed === 5) {
-      this.gameOver();
     }
   }
 
