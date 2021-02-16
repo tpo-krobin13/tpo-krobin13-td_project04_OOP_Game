@@ -10,10 +10,5 @@ When you lose the game, the final screen will randomly select one of the more th
 ### ** Win Quotes
 When you win the game, the final screen will randomly select one of the more than five quotes for the occasion. Enjoy
 
-### ** Loss Quotes
-When you lose the game, the final screen will randomly select one of the more than five quotes for the occasion. Enjoy
-
-
-
 
 
